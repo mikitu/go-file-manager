@@ -1,0 +1,18 @@
+hash: 8fbb30d0e624cb6a743c3ee549e75ab01fd3cdcc73c456ce85cd6b38873974c6
+updated: 2016-12-22T09:57:04.599692267Z
+imports:
+- name: github.com/astaxie/beego
+  version: 90999717dda6193c6f970eec52e289b0a9e74998
+  subpackages:
+  - config
+  - context
+  - grace
+  - logs
+  - session
+  - toolbox
+  - utils
+- name: golang.org/x/sys
+  version: d75a52659825e75fff6158388dddc6a5b04f9ba5
+  subpackages:
+  - unix
+devImports: []

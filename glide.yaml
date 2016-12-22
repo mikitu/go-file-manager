@@ -1,0 +1,6 @@
+package: github.com/mikitu/go-file-manager
+import:
+- package: github.com/astaxie/beego
+- package: golang.org/x/sys
+  subpackages:
+  - unix

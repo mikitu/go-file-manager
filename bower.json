@@ -1,0 +1,14 @@
+{
+  "name": "go-file-manager",
+  "homepage": "https://github.com/mikitu/go-file-manager",
+  "authors": [
+    "Mihai Bucse <mbucse@mediamath.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}
