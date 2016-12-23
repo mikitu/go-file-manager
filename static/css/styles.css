@@ -6,52 +6,21 @@ body {
     margin: 0;
 }
 
-th {
-    font-weight: normal;
-    color: #1F75CC;
-    background-color: #F0F9FF;
-    padding: .5em 1em .5em .2em;
-    text-align: left;
-    cursor: pointer;
-    user-select: none;
-}
-
-th .indicator {
-    margin-left: 6px
-}
-
-thead {
-    border-top: 1px solid #82CFFA;
-    border-bottom: 1px solid #96C4EA;
-    border-left: 1px solid #E7F2FB;
-    border-right: 1px solid #E7F2FB;
-}
-
-#top {
-    height: 52px;
-}
 
 #mkdir {
     display: inline-block;
     float: right;
-    padding-top: 16px;
-}
-
-label {
-    display: block;
-    font-size: 11px;
-    color: #555;
 }
 
 #file_drop_target {
-    width: 500px;
     padding: 12px 0;
     border: 4px dashed #ccc;
     font-size: 12px;
     color: #ccc;
     text-align: center;
-    float: right;
-    margin-right: 20px;
+}
+#file_drop_target .form-control-file{
+    display: initial!important;
 }
 
 #file_drop_target.drag_over {
@@ -88,70 +57,16 @@ label {
     height: 10px;
 }
 
-footer {
-    font-size: 11px;
-    color: #bbbbc5;
-    padding: 4em 0 0;
-    text-align: left;
-}
-
-footer a, footer a:visited {
-    color: #bbbbc5;
-}
-
 #breadcrumb {
     padding-top: 34px;
     font-size: 15px;
     color: #aaa;
-    display: inline-block;
-    float: left;
+    display: block;
 }
 
 #folder_actions {
     width: 50%;
     float: right;
-}
-
-a, a:visited {
-    color: #00c;
-    text-decoration: none
-}
-
-a:hover {
-    text-decoration: underline
-}
-
-.sort_hide {
-    display: none;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-thead {
-    max-width: 1024px
-}
-
-td {
-    padding: .2em 1em .2em .2em;
-    border-bottom: 1px solid #def;
-    height: 30px;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-td.first {
-    font-size: 14px;
-    white-space: normal;
-}
-
-td.empty {
-    color: #777;
-    font-style: italic;
-    text-align: center;
-    padding: 3em 0;
 }
 
 .is_dir .size {

@@ -4,6 +4,9 @@ import (
     "golang.org/x/sys/unix"
     "os"
     "github.com/astaxie/beego"
+    "log"
+    "os/user"
+    "strings"
 )
 
 func IsWritable(path string) bool {
@@ -39,7 +42,18 @@ func GetBaseDir() string {
     if dir := os.Getenv("APP_BASE_DIR"); dir != "" {
         base_dir = dir
     }
+    if strings.HasPrefix(base_dir, "~/") {
+        base_dir = GetHomeDir() + "/" + strings.Replace(base_dir, "~/", "", -1)
+    }
     return base_dir
+}
+
+func GetHomeDir() string {
+    usr, err := user.Current()
+    if err != nil {
+        log.Fatal( err )
+    }
+    return usr.HomeDir
 }
 
 func IsDeleteableRecursive(path string) bool {

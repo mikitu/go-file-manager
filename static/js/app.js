@@ -17,7 +17,7 @@ $(document).ready(function() {
           var $link = $('<a class="name" />')
             .attr('href', data.is_dir ? '#' + data.path : './'+data.path)
             .text(data.name);
-          var $dl_link = $('<a/>').attr('href','/download&file='+encodeURIComponent(data.path))
+          var $dl_link = $('<a/>').attr('href','/download?file='+encodeURIComponent(data.path))
               .addClass('download').text('download');
           var $delete_link = $('<a href="#" />').attr('data-file',data.path).addClass('delete').text('delete');
           var perms = [];
@@ -38,8 +38,8 @@ $(document).ready(function() {
       { "data": "name" },
       { "data": "size" },
       { "data": "mtime" },
-      { "data": "perm" },
-      { "data": "actions" }
+      { "data": "perm", "orderable": false },
+      { "data": "actions", "orderable": false }
     ]
   } );
     $(window).bind('hashchange',reloadTable).trigger('hashchange');
@@ -52,11 +52,11 @@ function reloadTable() {
 }
 function renderBreadcrumbs(path) {
     var base = "",
-        $html = $('<div/>').append( $('<a href=#>Home</a></div>') );
+        $html = $('<ol class="breadcrumb"/>').append( $('<li class="breadcrumb-item"><a href="#">Home</a></li>') );
     $.each(path.split('/'),function(k,v){
         if(v) {
-            $html.append( $('<span/>').text(' ▸ ') )
-                .append( $('<a/>').attr('href','#'+base+v).text(v) );
+            $html.append( $('<li class="breadcrumb-item"/>')
+                .append( $('<a/>').attr('href','#'+base+v).text(v) ));
             base += v + '/';
         }
     });

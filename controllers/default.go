@@ -47,7 +47,8 @@ func (c *MainController) Delete() {
 
 }
 func (c *MainController) Download() {
-
+    fInput := c.Ctx.Input.Query("file")
+    c.Ctx.Output.Download(utils.GetBaseDir() + "/" + fInput)
 }
 func (c *MainController) Upload() {
 
