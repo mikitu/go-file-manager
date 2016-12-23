@@ -11,15 +11,15 @@
     <script type="text/javascript" src="/static/js/app.js"></script>
 </head>
 <body>
-<div id="top">
+<div id="top" class="form-group">
     <form action="?" method="post" id="mkdir"/>
-    <label for=dirname>Create New Folder</label><input id=dirname type=text name=name value=""/>
-    <input type="submit" value="create"/>
+    <label for=dirname>Create New Folder</label><input id=dirname type=text name=name value="" class="form-control"/>
+    <input type="submit" value="create" class="btn btn-primary"/>
     </form>
     <div id="file_drop_target">
         Drag Files Here To Upload
         <b>or</b>
-        <input type="file" multiple/>
+        <input type="file" multiple class="form-control-file"/>
     </div>
     <div id="breadcrumb">&nbsp;</div>
 </div>

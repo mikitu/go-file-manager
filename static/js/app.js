@@ -1,29 +1,35 @@
 /**
  * Created by mihaibucse on 22/12/2016.
  */
+var table;
+var baseUrl = "/list?file="
 $(document).ready(function() {
   var hashval = window.location.hash.substr(1);
   $('#breadcrumb').empty().html(renderBreadcrumbs(hashval));
-  $('#table').DataTable( {
+    table = $('#table').DataTable( {
+        "rowCallback": function (nRow, aData, iDisplayIndex) {
+            $(nRow).addClass(aData.is_dir ? 'is_dir' : '');
+        },
     "ajax": {
-      "url" : "/list?file=" + hashval,
+      "url" : baseUrl + hashval,
       "dataSrc": function(json) {
         $.each(json.data, function(idx, data) {
           var $link = $('<a class="name" />')
             .attr('href', data.is_dir ? '#' + data.path : './'+data.path)
             .text(data.name);
-          var $dl_link = $('<a/>').attr('href','?do=download&file='+encodeURIComponent(data.path))
+          var $dl_link = $('<a/>').attr('href','/download&file='+encodeURIComponent(data.path))
               .addClass('download').text('download');
           var $delete_link = $('<a href="#" />').attr('data-file',data.path).addClass('delete').text('delete');
           var perms = [];
           if(data.is_readable) perms.push('read');
           if(data.is_writable) perms.push('write');
           if(data.is_executable) perms.push('exec');
-          data.name = '<a href="' + $link.attr("href") + '">' + $link.html() + '</a>';
-          data.size = $('<span class="size" />').text(formatFileSize(data.size)).html()
+          $size = $('<span class="size" />').text(formatFileSize(data.size))
+          data.name = $('<div/>').append($link).html();
+          data.size = $('<div/>').append($size).html()
           data.mtime = formatTimestamp(data.mtime);
           data.perm = perms.join('+');
-          data.actions = $dl_link.append( data.is_deleteable ? $delete_link : '').html()
+          data.actions = $('<div/>').append($dl_link).append( data.is_deleteable ? $delete_link : '').html()
         })
         return json.data
       }
@@ -36,7 +42,14 @@ $(document).ready(function() {
       { "data": "actions" }
     ]
   } );
+    $(window).bind('hashchange',reloadTable).trigger('hashchange');
 } );
+function reloadTable() {
+    var hashval = window.location.hash.substr(1);
+    $('#breadcrumb').empty().html(renderBreadcrumbs(hashval));
+    table.ajax.url(baseUrl + hashval)
+    table.ajax.reload()
+}
 function renderBreadcrumbs(path) {
     var base = "",
         $html = $('<div/>').append( $('<a href=#>Home</a></div>') );
