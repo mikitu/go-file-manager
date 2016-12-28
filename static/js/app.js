@@ -26,8 +26,8 @@ $(document).ready(function() {
           if(data.is_executable) perms.push('exec');
           $size = $('<span class="size" />').text(formatFileSize(data.size))
           data.name = $('<div/>').append($link).html();
-          data.size = $('<div/>').append($size).html()
-          data.mtime = formatTimestamp(data.mtime);
+          data.sizef = $('<div/>').append($size).html()
+          data.fmtime = formatTimestamp(data.mtime);
           data.perm = perms.join('+');
           data.actions = $('<div/>').append($dl_link).append( data.is_deleteable ? $delete_link : '').html()
         })
@@ -36,8 +36,10 @@ $(document).ready(function() {
     },
     "columns": [
       { "data": "name" },
-      { "data": "size" },
-      { "data": "mtime" },
+      { "data": "size", "visible": false },
+      { "data": "sizef", "orderData": 1, "targets": 1 },
+      { "data": "mtime", "visible": false },
+      { "data": "fmtime", "orderData": 3, "targets": 3 },
       { "data": "perm", "orderable": false },
       { "data": "actions", "orderable": false }
     ]

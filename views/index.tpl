@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="/static/js/app.js"></script>
+    <script type="text/javascript" src="/static/js/app.js?1"></script>
 </head>
 <body>
 
@@ -41,6 +41,8 @@
 	    <tr>
 	        <th>Name</th>
 	        <th>Size</th>
+	        <th>Size</th>
+	        <th>Modified</th>
 	        <th>Modified</th>
 	        <th>Permissions</th>
 	        <th>Actions</th>
