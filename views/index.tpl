@@ -4,11 +4,13 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/static/components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="/static/css/styles.css">
     <script type="text/javascript" src="/static/components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/static/components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
 
     <script type="text/javascript" src="/static/js/app.js?1"></script>
 </head>
@@ -36,7 +38,7 @@
 
 	<div id="upload_progress"></div>
 
-	<table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+	<table id="table" class="table table-striped table-bordered display " cellspacing="0" width="100%">
 	    <thead>
 	    <tr>
 	        <th>Name</th>
