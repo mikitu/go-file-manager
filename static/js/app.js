@@ -15,7 +15,7 @@ $(document).ready(function() {
       "dataSrc": function(json) {
         $.each(json.data, function(idx, data) {
           var $link = $('<a class="name" />')
-            .attr('href', data.is_dir ? '#' + data.path : './'+data.path)
+            .attr('href', data.is_dir ? '#' + data.path : '#')
             .text(data.name);
           var $dl_link = $('<a/>').attr('href','/download?file='+encodeURIComponent(data.path))
               .addClass('download').text('download');
@@ -34,6 +34,7 @@ $(document).ready(function() {
         return json.data
       }
     },
+    "aaSorting": [[4, 'desc']],
     "columns": [
       { "data": "name" },
       { "data": "size", "visible": false },
